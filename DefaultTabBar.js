@@ -83,7 +83,7 @@ const DefaultTabBar = createReactClass({
             {
               transform: [{ translateX }]
             },
-            this.props.underlineStyle
+            this.props.tabBarUnderlineStyle
           ]}
         />
       </View>
