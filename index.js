@@ -7,7 +7,6 @@ const PropTypes = require('prop-types');
 const { Dimensions, View, Animated, ScrollView, Platform, StyleSheet, InteractionManager } = ReactNative;
 const TimerMixin = require('react-timer-mixin');
 
-const ViewPagerAndroid = require('@react-native-community/viewpager');
 const ViewPager = require('@react-native-community/viewpager');
 
 const SceneComponent = require('./SceneComponent');
