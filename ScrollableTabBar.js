@@ -1,5 +1,6 @@
+const ReactNative = require('react-native');
 const React = require('react');
-const { ViewPropTypes } = (ReactNative = require('react-native'));
+const { ViewPropTypes } = ReactNative;
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
 const { View, Animated, StyleSheet, ScrollView, Text, Platform, Dimensions } = ReactNative;
@@ -23,7 +24,7 @@ const ScrollableTabBar = createReactClass({
     renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
     onScroll: PropTypes.func,
-    underlineWidth: PropTypes.number
+    underlineWidth: PropTypes.number,
   },
 
   getDefaultProps() {
@@ -36,7 +37,7 @@ const ScrollableTabBar = createReactClass({
       tabStyle: {},
       tabsContainerStyle: {},
       underlineStyle: {},
-      underlineWidth: 0
+      underlineWidth: 0,
     };
   },
 
@@ -45,7 +46,7 @@ const ScrollableTabBar = createReactClass({
     return {
       _leftTabUnderline: new Animated.Value(0),
       _widthTabUnderline: new Animated.Value(0),
-      _containerWidth: null
+      _containerWidth: null,
     };
   },
 
@@ -157,12 +158,12 @@ const ScrollableTabBar = createReactClass({
       position: 'absolute',
       height: 4,
       backgroundColor: 'navy',
-      bottom: 0
+      bottom: 0,
     };
 
     const dynamicTabUnderline = {
       left: this.state._leftTabUnderline,
-      width: this.state._widthTabUnderline
+      width: this.state._widthTabUnderline,
     };
 
     const { onScroll } = this.props;
@@ -173,7 +174,7 @@ const ScrollableTabBar = createReactClass({
         onLayout={this.onContainerLayout}
       >
         <ScrollView
-          ref={scrollView => {
+          ref={(scrollView) => {
             this._scrollView = scrollView;
           }}
           horizontal={true}
@@ -225,7 +226,7 @@ const ScrollableTabBar = createReactClass({
   onContainerLayout(e) {
     this._containerMeasurements = e.nativeEvent.layout;
     this.updateView({ value: this.props.scrollValue.__getValue() });
-  }
+  },
 });
 
 module.exports = ScrollableTabBar;
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
   container: {
     height: 50,
@@ -244,10 +245,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderColor: '#ccc'
+    borderColor: '#ccc',
   },
   tabs: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
-  }
+    justifyContent: 'space-around',
+  },
 });

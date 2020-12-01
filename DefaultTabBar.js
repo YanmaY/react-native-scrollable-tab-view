@@ -1,5 +1,6 @@
+const ReactNative = require('react-native');
 const React = require('react');
-const { ViewPropTypes } = (ReactNative = require('react-native'));
+const { ViewPropTypes } = ReactNative;
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
 const { StyleSheet, Text, View, Animated } = ReactNative;
@@ -18,14 +19,14 @@ const DefaultTabBar = createReactClass({
     textStyle: Text.propTypes.style,
     tabStyle: ViewPropTypes.style,
     renderTab: PropTypes.func,
-    underlineStyle: ViewPropTypes.style
+    tabBarUnderlineStyle: ViewPropTypes.style,
   },
 
   getDefaultProps() {
     return {
       activeTextColor: 'navy',
       inactiveTextColor: 'black',
-      backgroundColor: null
+      backgroundColor: null,
     };
   },
 
@@ -61,12 +62,12 @@ const DefaultTabBar = createReactClass({
       width: containerWidth / numberOfTabs,
       height: 4,
       backgroundColor: 'navy',
-      bottom: 0
+      bottom: 0,
     };
 
     const translateX = this.props.scrollValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, containerWidth / numberOfTabs]
+      outputRange: [0, containerWidth / numberOfTabs],
     });
     return (
       <View
@@ -81,14 +82,14 @@ const DefaultTabBar = createReactClass({
           style={[
             tabUnderlineStyle,
             {
-              transform: [{ translateX }]
+              transform: [{ translateX }],
             },
-            this.props.tabBarUnderlineStyle
+            this.props.tabBarUnderlineStyle,
           ]}
         />
       </View>
     );
-  }
+  },
 });
 
 const styles = StyleSheet.create({
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   tabs: {
     height: 50,
@@ -106,8 +107,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderColor: '#ccc'
-  }
+    borderColor: '#ccc',
+  },
 });
 
 module.exports = DefaultTabBar;
