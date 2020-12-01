@@ -78,15 +78,7 @@ const DefaultTabBar = createReactClass({
           const renderTab = this.props.renderTab || this.renderTab;
           return renderTab(name, page, isTabActive, this.props.goToPage);
         })}
-        <Animated.View
-          style={[
-            tabUnderlineStyle,
-            {
-              transform: [{ translateX }],
-            },
-            this.props.tabBarUnderlineStyle,
-          ]}
-        />
+        <Animated.View style={[tabUnderlineStyle, { transform: [{ translateX }] }, this.props.tabBarUnderlineStyle]} />
       </View>
     );
   },
